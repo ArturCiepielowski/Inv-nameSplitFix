@@ -1,18 +1,16 @@
 Dim oFileName As String = "2999.00.00_test_druga_trzecia"
-'Dim oFileName As String = "2999.00.00_testdrugatrzecia"
-Dim NazwaDzielona = Split(oFileName, "_")
-Dim iloscNazw As Integer
-Dim resztaNazwy as String = ""
-Dim index As Integer = 1
+		'Dim oFileName As String = "2999.00.00_testdrugatrzecia"
+    Dim NazwaDzielona = Split(oFileName, "_")
+    Dim iloscNazw As Integer
+    Dim resztaNazwy as String = NazwaDzielona(1)
+    Dim index As Integer = 2
     
-iloscNazw = UBound(NazwaDzielona)
+    iloscNazw = UBound(NazwaDzielona)
 
-If iloscNazw > 2 Then
+    If iloscNazw > 2 Then
       
       Do
           resztaNazwy = resztaNazwy + "_" + NazwaDzielona(index)        
-          Console.WriteLine(index)
-          Console.WriteLine(resztaNazwy)
           index += 1
       Loop Until index > iloscNazw
       
