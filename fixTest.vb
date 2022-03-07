@@ -1,31 +1,31 @@
-'Dim oFileName As String = ThisDoc.FileName(False)
-Dim oFileName As String
+Dim oFileName As String = "2999.00.00_test_druga_trzecia"
+'Dim oFileName As String = "2999.00.00_testdrugatrzecia"
 Dim NazwaDzielona = Split(oFileName, "_")
-Dim Test, Test2 As Integer
+Dim iloscNazw As Integer
+Dim resztaNazwy as String = ""
+Dim index As Integer = 1
+    
+iloscNazw = UBound(NazwaDzielona)
 
-oFileName = "2999.00.00_test_druga_trzecia"
-Test = UBound(NazwaDzielona)
-Test2 = LBound(NazwaDzielona)
+If iloscNazw > 2 Then
+      
+      Do
+          resztaNazwy = resztaNazwy + "_" + NazwaDzielona(index)        
+          Console.WriteLine(index)
+          Console.WriteLine(resztaNazwy)
+          index += 1
+      Loop Until index > iloscNazw
+      
 
-MsgBox(Test)
-'MsgBox(Test2)
-
-'If Test > 1 Then
-	
-	
-'Else	
-
-MsgBox(NazwaDzielona(0) & vbCrLf & NazwaDzielona(1) & vbCrLf & NazwaDzielona(2) & vbCrLf & NazwaDzielona(3))
-
-Test = UBound(NazwaDzielona)
-'Test2 = LBound(NazwaDzielona)
-
-MsgBox(Test)
-'MsgBox(Test2)
-
-
-'iProperties.Value("Project", "Part Number") = NazwaDzielona(0)
-'iProperties.Value("Project", "Description") = NazwaDzielona(1)
-'iProperties.Value("Summary", "Title") = NazwaDzielona(1)
-
-
+      iProperties.Value("Project", "Part Number") = NazwaDzielona(0)
+      iProperties.Value("Project", "Description") = resztaNazwy
+      iProperties.Value("Summary", "Title") = resztaNazwy
+      
+Else
+      
+      
+      iProperties.Value("Project", "Part Number") = NazwaDzielona(0)
+      iProperties.Value("Project", "Description") = NazwaDzielona(1)
+      iProperties.Value("Summary", "Title") = NazwaDzielona(1)
+    
+End If
